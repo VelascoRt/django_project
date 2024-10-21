@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404, HttpResponseRedirect 
 
 # Create your views here.
@@ -6,7 +6,8 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 def index(request):
     return HttpResponse("This is the index")
 
-def list(request):
+def list(request,note_id):
+    note = get_object_or_404()
     return HttpResponse("This is where the notes are gonna be")
 
 def detail(request):
