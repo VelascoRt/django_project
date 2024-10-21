@@ -2,6 +2,10 @@ from django.db import models
 
 # Create your models here.
 
+class User(models.Models):
+    username = models.CharField(max_length = 30) 
+
+
 class Note(models.Model):
     user : models.ForeignKey(User, on_delete=models.CASCADE, related_name="notes")
     title : models.CharField(max_length = 200)
