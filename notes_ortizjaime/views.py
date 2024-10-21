@@ -1,10 +1,15 @@
-from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404, HttpResponseRedirect 
-
+from django.template import loader
+from django.shortcuts import render, get_object_or_404
+from .models import User, Note 
+from django.db.models import F
+from django.urls import reverse
 # Create your views here.
 
 def index(request):
-    return HttpResponse("This is the index")
+    notes_list = Note.objects.order_by("-creation_date" )
+    context = {"notes_list" : notes_list}
+    return render(render,"notes/index.html",context)
 
 def list(request,note_id):
     note = get_object_or_404()
