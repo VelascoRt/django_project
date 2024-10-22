@@ -9,7 +9,7 @@ from django.urls import reverse
 def index(request):
     notes_list = Note.objects.order_by("-creation_date" )
     context = {"notes_list" : notes_list}
-    return render(render,"notes/index.html",context)
+    return render(request,"note/index.html",context)
 
 def list(request,note_id):
     note = get_object_or_404()
