@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit</title>
+    <title>Register</title>
 </head>
-
-<h1>Edit</h1>
+<h1>Register</h1>
   <form method ="POST" autocomplete = "off">
     {% csrf_token %}
-    {{ noteform.as_p }}
-    <input type="submit" value="Create"/>
+    {{registerform.as_p}}
+    <input type="submit" value="Register"/>
   </form>
-<body>
 <body>
     
 </body>

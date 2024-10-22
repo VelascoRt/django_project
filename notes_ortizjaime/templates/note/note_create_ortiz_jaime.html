@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create</title>
 </head>
-<h1>Create</h1>
+
+<h1>Create a note</h1>
+  <form method ="POST" autocomplete = "off">
+    {% csrf_token %}
+    {{ noteform.as_p }}
+    <input type="submit" value="Create"/>
+  </form>
+<body>
 <body>
     
 </body>

@@ -5,14 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List</title>
 </head>
-<h1>Notes </h1>
+<h1> Notes </h1>
+  <a href = "{% url 'notes:create' %}">Create a new note</a>
 {% if notes_list %}
   {% for note in notes_list %}
-  <li><a href="url 'note:detail' note.id">{{ note.title}}</a></li>
+  <li><a href="{% url 'notes:detail' note.id %}">{{ note.title }}</a></li>
+  <p>{{ note.content|truncatewords:20 }}</p> <!-- Muestra un resumen del contenido -->
+  <a href="{% url 'notes:detail' note.pk %}">Ver Detalle</a>
+  <a href="{% url 'notes:edit' note.pk %}">Editar</a>
+  <form action="{% url 'notes:delete' note.pk %}" method="post" style="display:inline;">
+    {% csrf_token %}
+  <input type="submit" value="Eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar esta nota?');">
   {% endfor %}
 {% else %}
   <p>There is no available notes.</p>
 {% endif %}
+<br>
+<a href = "{% url 'notes:logout' %}">Logout</a>
 
 <body>
     
