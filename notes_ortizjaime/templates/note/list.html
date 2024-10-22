@@ -5,7 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List</title>
 </head>
-<h1>List</h1>
+<h1>Notes </h1>
+{% if notes_list %}
+  {% for note in notes_list %}
+  <li><a href=" url 'note:detail' note.id">{{ note.title}}</a></li>
+  {% endfor%}
+{% else %}
+  <p>There is no available notes.</p>
+{% endif %}
+
 <body>
     
 </body>

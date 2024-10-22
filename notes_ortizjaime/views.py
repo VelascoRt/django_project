@@ -11,12 +11,14 @@ def index(request):
     context = {"notes_list" : notes_list}
     return render(request,"note/index.html",context)
 
-def list(request,note_id):
-    note = get_object_or_404()
-    return HttpResponse("This is where the notes are gonna be")
+def list(request):
+    notes = Note.objects.all()
+    context = {"notes_list" : notes}
+    return render(request,"note/list.html", context)
 
-def detail(request):
-    return HttpResponse("Detail of notes")
+def detail(request,note_id):
+    note = get_object_or_404(Note,pk = note_id)
+    return render(request,"note/detail.html",{"note":note})
 
 def create(request):
     return HttpResponse("create notes")
