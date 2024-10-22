@@ -9,16 +9,16 @@ from django.urls import reverse
 def index(request):
     notes_list = Note.objects.order_by("-creation_date" )
     context = {"notes_list" : notes_list}
-    return render(request,"note/index.html",context)
+    return render(request,"note/note_index_ortiz_jaime.html",context)
 
 def list(request):
     notes = Note.objects.all()
     context = {"notes_list" : notes}
-    return render(request,"note/list.html", context)
+    return render(request,"note/note_list_ortiz_jaime.html", context)
 
-def detail(request,note_id):
-    note = get_object_or_404(Note,pk = note_id)
-    return render(request,"note/detail.html",{"note":note})
+def detail(request,pk):
+    note = get_object_or_404(Note,pk = pk)
+    return render(request,"note/note_detail_ortiz_jaime.html",{"note":note})
 
 def create(request):
     return HttpResponse("create notes")

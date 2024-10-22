@@ -8,7 +8,7 @@
 <h1>Notes </h1>
 {% if notes_list %}
   {% for note in notes_list %}
-  <li><a href="url 'note:note_detail_ortiz_jaime' note.id">{{ note.title}}</a></li>
+  <li><a href="url 'note:detail' note.id">{{ note.title}}</a></li>
   {% endfor %}
 {% else %}
   <p>There is no available notes.</p>
